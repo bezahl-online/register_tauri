@@ -1,0 +1,33 @@
+#/bin/bash
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+if [ -z "$1" ] || [ -z "$2" ] 
+    then echo 'Syntax:
+        upDateTo <service> <TAG>
+    '
+    exit
+fi
+runningTAG=`getTAGofRunning $1`
+echo "running TAG: $runningTAG"
+if [ ${#runningTAG} -lt 3 ]; then
+    echo "not running"
+else
+    stopContainer $1 || exit 1
+    rmContainer $1 || exit 1
+fi
+rmImage $1 $2 || exit 1
+case $1 in 
+ptapi)
+    ptapiupdate $2
+    ;;
+gm65)
+    gm65update $2
+    ;;
+register)
+    registerupdate $2
+    ;;
+rfid)   
+    rfidupdate $2
+esac
+

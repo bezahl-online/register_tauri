@@ -1,0 +1,10 @@
+#/bin/bash
+upDateTo gm65 latest
+upDateTo ptapi latest
+upDateTo rfid latest
+upDateTo register latest
+
+echo
+echo "vielleicht ist es auch nötig den 'printserver' zu aktualisieren"
+echo " - das geht aktuell nur manuel per ssh von devpi"
+echo

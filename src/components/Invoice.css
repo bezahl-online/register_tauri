@@ -1,0 +1,29 @@
+.pdf {
+  width: 800px;
+  height: 1132px;
+  margin: auto;
+}
+embed {
+  width: 100%;
+  height: 100%;
+}
+
+.paper {
+  display: grid;
+  grid-template-rows: 1fr 5fr 2fr;
+}
+.header {
+  color: var(--text-color);
+  font-size: var(--header-font-size);
+  margin: auto;
+}
+.company {
+  width: 300px;
+}
+.invoice_qr {
+  display: flex;
+  width: 400px;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+}

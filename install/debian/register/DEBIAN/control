@@ -1,0 +1,9 @@
+Package: bezahl.online
+Name: Register
+Description: Register client including apis for payment terminal, barcode scanner, rfid reader and printing.
+Author: Ralph Eichelberger <ralph.eichelberger@gmail.com>
+Maintainer: bezahl.online e.U. <admin@bezahl.online>
+Version: 1.2.0
+Pre-Depends: nginx
+Architecture: all
+Homepage: https://bezahl.online

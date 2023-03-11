@@ -1,0 +1,2 @@
+echo "removing $1 service"
+(docker rm $1) && (echo -e "\n${GREEN}successfully removed $1 service ${NC}\n") || (echo -e "\n${RED}failed${NC}\n" && exit 1)

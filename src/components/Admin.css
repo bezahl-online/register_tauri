@@ -1,0 +1,42 @@
+.functions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .functions > button {
+    font-size: xxx-large;
+    font-weight: bold;
+    width: 30rem;
+    height: 8rem;
+  }
+  .buttonAbort {
+    grid-column: 2;
+    background: rgb(148, 148, 148);
+    color: inherit;
+    color: inherit;
+    font-size: 4.5rem;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 0.8rem;
+  }
+  .rksv_qr {
+    display: flex;
+    width: 400px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+  }
+  .header {
+    color: #1e2549;
+    font-size: var(--dialog-message-font-size);
+    width: 100%;
+    padding: 8px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    text-align: center;
+  }
+  

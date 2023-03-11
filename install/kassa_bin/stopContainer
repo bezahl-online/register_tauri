@@ -1,0 +1,3 @@
+containerID=`docker ps -a | awk -v p=$1 '$0~p {print $1}'`
+echo "stopping $1 service (containerID: $containerID)"
+(docker stop $containerID) && (echo -e "\n${GREEN}successfully stopped $1 service ${NC}\n") || (echo -e "\n${RED}failed${NC}\n" && exit 1)

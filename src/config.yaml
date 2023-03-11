@@ -1,0 +1,4 @@
+register:
+  id: 9901
+mmsapi:
+  url: "http://localhost:8090"

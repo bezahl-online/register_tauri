@@ -1,0 +1,25 @@
+/* Storno */
+.header {
+    color: #1e2549;
+    font-size: 4.5rem;
+    margin: auto;
+  }
+  
+  .body {
+    height: 10rem;
+    width: 60rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .button {
+    width: 40rem;
+    height: 10rem;
+    font-size: var(--button-font-size);
+    border-radius: 0.8rem;
+  }
+  
+  .yes {
+    background: var(--storno-yes-background-color)
+  }

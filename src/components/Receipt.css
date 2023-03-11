@@ -1,0 +1,108 @@
+/* Receipt */
+.noreceipt {
+  height: 100%;
+  color: var(--text-color);
+  font-size: 2rem;
+  display: grid;
+  column-gap: 1rem;
+  padding: 0.2rem;
+  grid-template-columns: 1fr 5fr 1fr;
+  /* background-color: darkgray; */
+}
+.please {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
+  font-size: var(--font-size);
+}
+
+.scann {
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: center;
+  padding-right: 10rem;
+  font-size: var(--font-size);
+  width: 50rem;
+}
+
+.receipt {
+  /* height: 100%; */
+  display: grid;
+  grid-template-rows: auto 7rem;
+  color: var(--receipt-article-textcolor);
+  background-color: var(--receipt-background);
+  border-radius: 0.8rem;
+}
+
+.totals {
+  font-size: var(--receipt-total-font-size);
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 4fr 2fr 2fr;
+  text-align: right;
+  margin: 0.2rem 1rem;
+}
+
+.items_grid {
+  display: grid;
+  grid-template-columns: 80px 60px 600px 100px 110px;
+  text-align: right;
+  align-content: flex-start flex;
+  font-size: 2.5rem;
+  column-gap: 1rem;
+}
+
+.qtymore {
+  background-color: #f6ef91;
+  border-radius: 30%;
+}
+
+
+
+.prodName {
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.header {
+  font-weight: bold;
+  background-color: #1e254949;
+  border-bottom: 1px solid;
+  padding: 0.2rem 1rem;
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+.left {
+  text-align: left;
+}
+.item {
+  margin: 0.9rem 1rem;
+}
+.ximg {
+  border: none;
+  border-radius: 1rem;
+  background: url("../assets/X.svg");
+  background-color: #1e254949;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 2px 5px 15px 3px rgba(0, 0, 0, 0.35);
+}
+.taxes {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 2rem 5rem;
+  grid-auto-rows: 1rem;
+  text-align: right;
+  justify-content: left;
+}
+
+.footer {
+  grid-row: 2;
+  display: grid;
+  color: var(--receipt-footer-textcolor);
+  background-color: var(--receipt-footer-background);
+  border-top: 1px solid black;
+  border-radius: 0 0 0.8rem 0.8rem;
+}

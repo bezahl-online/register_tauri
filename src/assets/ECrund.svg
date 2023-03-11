@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   version="1.1"
+   viewBox="0 0 297 210"
+   id="svg871"
+   sodipodi:docname="ECrund.svg"
+   inkscape:version="1.0.2 (394de47547, 2021-03-26)">
+  <defs
+     id="defs875" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     id="namedview873"
+     showgrid="false"
+     inkscape:zoom="0.27149904"
+     inkscape:cx="1042.6023"
+     inkscape:cy="852.81964"
+     inkscape:window-x="72"
+     inkscape:window-y="280"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg871"
+     showborder="true"
+     inkscape:document-rotation="0"
+     inkscape:showpageshadow="false" />
+  <metadata
+     id="metadata855">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g869"
+     transform="matrix(1.5257191,0,0,1.5257191,-13.004802,-96.102541)">
+    <rect
+       x="15.135"
+       y="66.362999"
+       width="182.36"
+       height="131.35001"
+       fill="#003375"
+       fill-rule="evenodd"
+       stroke-width="0.32179"
+       id="rect857"
+       ry="18.295315" />
+    <g
+       transform="translate(8.3386,28.37)"
+       id="g867">
+      <path
+         d="m 57.947,48.039 h 61.033 c 10.451,0 18.865,8.4136 18.865,18.865 0,10.4514 -8.4136,18.865 -18.865,18.865 H 57.947 Z"
+         fill="#acd261"
+         fill-rule="evenodd"
+         stroke-width="0.26458"
+         id="path859" />
+      <path
+         d="m 57.947,90.579 h 61.033 c 10.451,0 18.865,8.4136 18.865,18.865 0,10.451 -8.4136,18.865 -18.865,18.865 H 57.947 Z"
+         fill="#00adef"
+         fill-rule="evenodd"
+         stroke-width="0.26458"
+         id="path861" />
+      <text
+         transform="scale(1.0106,0.98955)"
+         x="54.775436"
+         y="160.57544"
+         fill="#ffffff"
+         font-family="sans-serif"
+         font-size="28.627px"
+         stroke-width="0.71568"
+         style="line-height:1.25"
+         xml:space="preserve"
+         id="text865"><tspan
+           x="54.775436"
+           y="160.57544"
+           fill="#ffffff"
+           stroke-width="0.71568"
+           id="tspan863">Kasse</tspan></text>
+    </g>
+  </g>
+</svg>

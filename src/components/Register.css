@@ -1,0 +1,135 @@
+/* Register */
+.register {
+  height: 100vh;
+  display: grid;
+  gap: 10px;
+  grid-template-rows: [outer-start]12fr 2fr [outer-end]1.5fr;
+}
+.loading {
+  grid-row: 1;
+  /* background-image: url("../assets/Greisslomat_Symbol.png"); */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+
+  /*background: linear-gradient(220deg Gradient Angle, #f7f0918a, #243a8886,#f491f78a);
+  background-size: 400% 400%; /*Add 200% for each color*/
+  background: #243a8886;
+  
+  /* animation: LoadingSwap 5s ease infinite; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+  
+@keyframes LoadingSwap { 
+    0%{background-position:0% 100%}
+    50%{background-position:100% 0%}
+    100%{background-position:0% 100%}
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 290px;
+  height: 380px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 14px solid #1e2549;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 136px;
+    left: 136px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 272px;
+    height: 272px;
+    opacity: 0;
+  }
+}
+
+
+.receipt {
+  grid-row: 1;
+  margin: 1rem;
+}
+
+.payment .stornoModal .invoice .admin {
+  grid-row: 1;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-row: 3;
+}
+
+.buttons > button {
+  font-size: var(--button-font-size);
+  font-weight: bold;
+  width: 31rem;
+  height: 8rem;
+}
+
+.zahlen {
+  background-color: var(--green);
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.zahlendisabled {
+  background-color:#aaaf;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+
+.buttontext {
+  margin-right:1rem;
+}
+.buttontext2 {
+    margin: auto;
+}
+#bankomat {
+  background-image: url("../assets/cardpay.png");
+  background-repeat: no-repeat;
+  /* background-position: links; */
+  background-size: contain;
+}
+#kundenkonto {
+  background-image: url("../assets/GreisslomatKonto.png");
+  background-repeat: no-repeat;
+  /* background-position: links; */
+  background-size: contain;
+}
+
+.footer {
+  grid-row: 4;
+  /* grid-column: 2; */
+}
+

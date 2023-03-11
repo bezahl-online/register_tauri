@@ -1,0 +1,12 @@
+if [ -z $2 ]; then
+	imageID=`docker images | grep $1 | awk '{print $3}'`
+else
+	imageID=`docker images | grep $1 | awk -v t=$2 '$0~t {print $3}'`
+fi
+if [ ${#imageID} -lt 3 ]; then 
+	echo "nothing to remove"
+else
+	(echo "removing old image of $1:$2" && docker rmi -f $imageID &&
+	    echo -e "\n${GREEN}successfully removed all images ${NC}\n") ||
+	    (echo -e "\n${RED}failed${NC}\n" && exit 1)
+fi

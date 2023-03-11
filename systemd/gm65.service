@@ -1,0 +1,16 @@
+#Put me in /lib/systemd/system/
+[Unit]
+Description=GM65 Scanner Service
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/
+ExecStart=/home/pi/go/bin/gm65
+Restart=on-failure
+RestartSec=5
+StartLimitAction=reboot
+
+[Install]
+WantedBy=multi-user.target

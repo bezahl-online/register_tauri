@@ -1,0 +1,19 @@
+#/bin/bash
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+(echo "starting gm65.." && docker start gm65 && 
+ echo -e "\n${GREEN}gm65 started${NC}\n") ||
+    (echo -e "\n${RED}failed${NC}\n" && exit 1)
+(echo "starting ptapi.." && docker start ptapi &&
+ echo -e "\n${GREEN}ptapi started${NC}\n") ||
+    (echo -e "\n${RED}failed${NC}\n" && exit 1)
+(echo "starting rfid.." && docker start rfid && 
+ echo -e "\n${GREEN}rfid started${NC}\n") ||
+    (echo -e "\n${RED}failed${NC}\n" && exit 1)
+(echo "starting register.." && docker start register && 
+ echo -e "\n${GREEN}register started${NC}\n") ||
+    (echo -e "\n${RED}failed${NC}\n" && exit 1)
+docker ps
+chromestart

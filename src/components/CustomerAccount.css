@@ -1,0 +1,178 @@
+.zahlen {
+  background-color: var(--green);
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--button-font-size);
+  font-weight: bold;
+  height: 200px;
+  width: 650px;
+}
+.zahlen:disabled {
+  background-color: gray;
+}
+
+.header {
+  color: #1e2549;
+  font-size: var(--dialog-message-font-size);
+  width: 100%;
+  padding: 8px;
+  background: url("../assets/KONTO.svg") no-repeat;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  text-align: right;
+}
+
+.zheader {
+  color: #1e2549;
+  font-size: var(--dialog-message-font-size);
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+}
+
+.Konto {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 900px;
+  gap: 10px;
+}
+.details {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--customer-detail-background);
+  border-radius: 8px;
+  width: 400px;
+  height: 140px;
+  color: var(--customer-data-textcolor);
+  font-size: var(--customer-data-font-size);
+  padding: 6px 16px 6px 16px;
+}
+.account {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: var(--customer-data-font-size);
+  background-color: var(--customer-detail-background);
+  margin: 10px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+}
+.accountHead {
+  display: flex;
+  gap: 20px;
+  background-color: var(--receipt-footer-background);
+  border-radius: 8px 8px 0 0 ;
+}
+.accountLine {
+  display: flex;
+  gap: 20px;
+}
+.lineDate {
+  width: 160px;
+  text-align: right;
+}
+.lineTime {
+  width: 150px;
+  text-align: center;
+}
+.lineText {
+  width: 390px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.lineAmount{
+  width: 100px;
+  text-align: right;
+}
+.lineAmountRed{
+  color: red;
+}
+.lines{
+  height: 670px;
+  overflow-y: scroll;
+  font-size: 26px;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  height: 100%;
+  color: var(--customer-data-textcolor);
+  font-size: var(--customer-data-font-size);
+  padding: 6px 16px 6px 16px;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.bold {
+  font-size: var(--customer-balance-font-size);
+  font-weight: bold;
+}
+
+.info {
+  color: #1e2549;
+  font-size: var(--dialog-info-font-size);
+  text-align: center;
+  /* justify-content: center; */
+}
+.success {
+  color: var(--dialog-color-success);
+  font-weight: bold;
+}
+.abort {
+  color: var(--dialog-color-abort);
+  font-weight: bold;
+}
+.buttonClose {
+  grid-column: 2;
+  background: var(--button-background-color);
+  color: inherit;
+  font-size: var(--button-font-size);
+  font-weight: bold;
+  width: 100%;
+  height: var(--button-height);
+}
+.buttonCancel {
+  grid-column: 2;
+  background: var(--button-background-color);
+  color: inherit;
+  font-size: var(--button-font-size);
+  font-weight: bold;
+  width: 100%;
+  height: var(--button-height);
+  margin: 10px;
+}
+.buttonPay {
+  grid-column: 2;
+  background: var(--payment-button-background-color);
+  color: inherit;
+  font-size: var(--button-font-size);
+  font-weight: bold;
+  width: 100%;
+  height: var(--button-height);
+  margin: 10px;
+}
+.payment_buttons{
+  display: flex;
+
+}

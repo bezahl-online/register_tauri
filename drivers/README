@@ -1,0 +1,10 @@
+hll2310-brother-printer-driver.deb
+
+This debian package was first downloaded from
+brothers printer driver support site
+and then repackaged for armhf architecture,
+because they don't ship it that way, 
+but the armv7l is provided within.
+
+The orgiginal version is here:
+hll2310dpdrv-4.0.0-1.i386.deb

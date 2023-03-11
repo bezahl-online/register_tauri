@@ -1,0 +1,19 @@
+#Put me in /lib/systemd/system/
+[Unit]
+Description=PTAPI Bezahlterminal Service
+After=network.target
+[Service]
+Environment="ZVT_LOGFILEPATH=/var/log/zvt/"
+Environment="ZVT_DUMPFILEPATH=/var/log/zvt/dump/"
+Environment="ZVT_URL=192.168.30.162:20007"
+
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/
+ExecStart=/home/pi/go/bin/ptapi
+Restart=on-failure
+RestartSec=5
+StartLimitAction=reboot
+
+[Install]
+WantedBy=multi-user.target

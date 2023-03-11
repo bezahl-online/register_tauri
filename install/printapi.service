@@ -1,0 +1,19 @@
+#Put me in /lib/systemd/system/
+[Unit]
+Description=Print API Service
+After=network.target
+
+[Service]
+Environment="PRODUCTIVE=YES"
+Environment="INVOICE_PDF_URL=https://rksv.greisslomat.at/invoice_pdf?code="
+
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/
+ExecStart=/home/pi/printapi
+Restart=on-failure
+RestartSec=5
+StartLimitAction=reboot
+
+[Install]
+WantedBy=multi-user.target

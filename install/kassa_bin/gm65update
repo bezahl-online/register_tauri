@@ -1,0 +1,4 @@
+#/bin/bash
+(echo "updateing gm65server to TAG $1.." && docker run -d -p 8070:8070 -v /dev/serial/by-id/:/dev/serial/by-id --privileged --name gm65 --restart=always  www.greisslomat.at:3307/gm65:$(arch)_$1 && 
+ echo -e "\n${GREEN}gm65server updated and running${NC}\n") ||
+    (echo -e "\n${RED}failed${NC}\n" && exit 1)

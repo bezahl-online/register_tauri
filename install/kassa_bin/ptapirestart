@@ -1,0 +1,11 @@
+#/bin/bash
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+docker rm -f ptapi && 
+
+pt_ip=$(line=`egrep  "pt$" /etc/hosts`; echo ${line:0:15}); echo $pt_ip
+(echo "updateing ptapiserver.." && docker run -d -p 8060:8060 -v /var/log/zvt:/var/log/zvt --add-host=pt:${pt_ip} -e PRODUCTIVE=YES --name ptapi --restart=always  www.greisslomat.at:5000/ptapi:${TAG} &&
+ echo -e "\n${GREEN}ptapiserver updated and running${NC}\n") ||
+    (echo -e "\n${RED}failed${NC}\n" && exit 1)

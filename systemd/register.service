@@ -1,0 +1,19 @@
+#Put me in /lib/systemd/system/
+[Unit]
+Description=Register VUE App
+After=network.target
+Requires=gm65.service
+Requires=ptapi.service
+Requires=chromium.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/register
+ExecStart=/usr/local/bin/npm run serve
+Restart=on-failure
+RestartSec=5
+StartLimitAction=reboot
+
+[Install]
+WantedBy=multi-user.target

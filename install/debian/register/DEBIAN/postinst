@@ -1,0 +1,4 @@
+cd /usr/share/nginx/html/
+mv __index.html index.html
+systemctl restart nginx
+

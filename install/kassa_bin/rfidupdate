@@ -1,0 +1,4 @@
+#/bin/bash
+(echo "updateing rfidserver to TAG $1.." && docker run -d -p 8040:8040 -v /dev/serial/by-id/:/dev/serial/by-id --privileged --name rfid --restart=always  www.greisslomat.at:3307/rfid:$(arch)_$1 && 
+ echo -e "\n${GREEN}rfidserver updated and running${NC}\n") ||
+    (echo -e "\n${RED}failed${NC}\n" && exit 1)
