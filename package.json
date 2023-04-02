@@ -2,12 +2,14 @@
   "name": "register",
   "version": "1.2.2",
   "scripts": {
+    "tauri": "tauri",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
     "cypress:open": "cypress open"
   },
   "dependencies": {
+    "@tauri-apps/api": "^1.2.0",
     "axios": "^0.23.0",
     "cron": "^1.8.2",
     "dexie": "^3.0.3",
@@ -17,6 +19,7 @@
     "vue": "^3.2.20"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1.2.3",
     "@types/cron": "^1.7.3",
     "@types/node": "^16.11.0",
     "@vitejs/plugin-vue": "^1.9.3",
