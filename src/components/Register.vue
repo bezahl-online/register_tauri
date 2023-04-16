@@ -210,7 +210,6 @@ function PTPaymentSuccess(): void {
 }
 
 function CreditPaymentSuccess(): void {
-  // if (!store.customer.payment) return; //FIXME: send error to API
   // @ts-ignore
   addCustomerAccountPaymentDB(store.customer.payment, store)
     .catch((err) => {

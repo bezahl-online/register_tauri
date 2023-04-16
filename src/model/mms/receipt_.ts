@@ -22,7 +22,7 @@ export interface Tax {
 }
 
 export interface TotalAmounts {
-    price?: number; // FIXME: did I break it?
+    price?: number;
     discountAmount?: number;
     taxes?: Array<Tax> | void;
 }

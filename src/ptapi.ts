@@ -27,12 +27,12 @@ export function startpayment(store: RegisterState): Promise<any> {
       });
   });
 }
-// FIXME: type of promise to payment result object
 export function pollpayment(store: RegisterState): Promise<AuthCompletionResponse | any > {
   return new Promise((resolve, reject) => {
     post(
       "/authorise_completion",
       {
+        // @ts-ignore
         receipt_code: store.mms.receipt["code"],
       },
       store.pt.url

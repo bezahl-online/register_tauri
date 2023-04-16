@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import axios, { AxiosResponse } from "axios";
 import { inject } from "vue";
@@ -28,22 +27,27 @@ function getRFID(store: RegisterState) {
         store.error = null;
         try {
           await getCustomerAccount(store, key_uid);
-          console.log(`customer ID: ${store.customer.account.id}`);
-          if (store.customer.account && store.customer.account.type != 'admin') {
+          // console.log(`customer ID: ${store.customer.account.id}`);
+          if (store.customer.account && store.customer.account.type != "admin") {
             await getCustomerAccountBalance(store, store.customer.account.id);
-            if (store.customer.account.type != 'admin') {
-              store.customer.countdown = 5
-              if (store.mms.receipt && store.customer.balance*100 >= store.mms.receipt.total.price) {
+            if (store.customer.account.type != "admin") {
+              store.customer.countdown = 5;
+              if (
+                store.mms.receipt &&
+                store.customer.balance &&
+                // @ts-ignore
+                store.customer.balance * 100 >= store.mms.receipt.total.price
+              ) {
                 store.customer.countdown_interval = setInterval(() => {
-                  console.log(store.customer.countdown)
+                  console.log(store.customer.countdown);
                   if (store.customer.countdown > 0) store.customer.countdown--;
-                  else clearInterval(store.customer.countdown_interval)
-                }, 1000)
+                  else clearInterval(store.customer.countdown_interval);
+                }, 1000);
               }
             }
             await getCreditAccountLines(store, store.customer.account.id);
           }
-        } catch (err) { // TODO: send error as register status
+        } catch (err) {
           console.log(`no customer found for key uid "${key_uid}"`);
         }
       } else {
@@ -81,6 +85,7 @@ function wait(delay: number) {
   });
 }
 async function start() {
+  if (!store) return;
   while (!store.registerID) {
     await wait(100);
   }

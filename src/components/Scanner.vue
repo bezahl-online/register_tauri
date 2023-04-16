@@ -29,7 +29,6 @@ let sameCodeHold = false;
 const store = inject<RegisterState>("store");
 
 function getCode(store: RegisterState) {
-  // TODO: test
   if (store.pt.busy || store.invoice.receiptCode) {
     console.log("payment in progress - no scanning");
     setTimeout(
@@ -68,7 +67,6 @@ function getCode(store: RegisterState) {
             )
               .then((register: Register) => {
                 regdb.setRegisterID(register.id, register.name);
-                // TODO: get company data and set in store (used eg. on invoice)#
                 authenticate(store).then((success) => {
                   store.error = {
                     nr: 13,
@@ -77,7 +75,7 @@ function getCode(store: RegisterState) {
                   getCompanyData(store, register.company_id)
                     .then((company: Company) => {
                       regdb.setCompanyID(company.id, company.name, company.address);
-                      location.reload(); // gross but only on the first start necessary 
+                      location.reload(); // gross but only on the first start necessary
                     })
                     .catch((err) => {
                       SetError(
