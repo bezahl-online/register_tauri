@@ -36,7 +36,6 @@ import { startEndOfDay } from "./Admin";
 import { ReceiptType } from "../model/mms/receiptType";
 import type { Receipt } from "../model/mms/receipt";
 import { decode as base64URLdecode } from "universal-base64url";
-import { decode, encode } from "universal-base64";
 import { logdb } from "../store/logdata";
 import Modal from "./Modal.vue";
 import ECDialog from "./ECDialog.vue";
