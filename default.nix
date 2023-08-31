@@ -1,42 +1,27 @@
-# As I said, you'll need a two-stage build
-# Build your frontend with buildNpmPackage or similar first
-# CoderGrandpa
-# is there an example on how to do that?
-# K900 ⚡️
-# And then you can symlink it into place with preBuild
-# Search nixpkgs for buildNpmPackage
+# build with:
+# nix-build -E 'let pkgs = import <nixpkgs> { }; in pkgs.callPackage ./default.nix {}'
 
 
-{ rustPlatform, 
-  fetchFromGitHub, 
-  lib, 
-  gtk3, 
-  webkitgtk, 
-  pkgconfig, 
-  appimagekit, 
-  openssl, 
-  cmake, 
-  stdenv, 
-  libsoup
-}:
+{ lib, buildNpmPackage, fetchFromGitHub }:
 
-rustPlatform.buildRustPackage rec {
-  pname = "Register";
-  version = "1.2.3"; 
-  
-  src = ./src-tauri/.;
+buildNpmPackage rec {
+  pname = "register";
+  version = "1.2.3";
 
-  nativeBuildInputs = [ pkgconfig openssl cmake ];
-  
-  buildInputs = [ libsoup webkitgtk];
+  src = ./.;
+  # makeCacheWritable=true;
+  npmDepsHash = "sha256-FIBlEqTwIA9O6WqRDk5TRbY9xSc+Scd1ulxYxKOpB1o=";
 
-  cargoSha256 = "sha256-LC1YLwMg8bQgsSvKiEcjiXTaj/7qBiDBTGgwzqZwSJ8=";
+  # The prepack script runs the build script, which we'd rather do in the build phase.
+  npmPackFlags = [ "--ignore-scripts" ];
+
+  NODE_OPTIONS = "--openssl-legacy-provider";
 
   meta = with lib; {
-    homepage = "https://github.com/bezahl-online/register_tauri";
-    description = "Register for MMS";
-    license = licenses.mit;
+    description = "Register app for MMS";
+    homepage = "";
+    license = licenses.gpl3Only;
     maintainers = with maintainers; [ ralpheichelberger ];
-    platforms = platforms.unix;
   };
 }
+
