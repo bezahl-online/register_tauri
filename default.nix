@@ -20,7 +20,7 @@ buildNpmPackage rec {
   meta = with lib; {
     description = "Register app for MMS";
     homepage = "";
-    license = licenses.gpl3Only;
+    license = licenses.mit;
     maintainers = with maintainers; [ ralpheichelberger ];
   };
 }
