@@ -1,42 +1,42 @@
-# default.nix
+# As I said, you'll need a two-stage build
+# Build your frontend with buildNpmPackage or similar first
+# CoderGrandpa
+# is there an example on how to do that?
+# K900 ⚡️
+# And then you can symlink it into place with preBuild
+# Search nixpkgs for buildNpmPackage
 
-# build using 
-# nix-build -E 'let pkgs = import <nixpkgs> { }; in pkgs.callPackage ./default.nix {buildRustPackage = pkgs.rustPlatform.buildRustPackage;}'
 
-{ lib, buildGoModule, buildRustPackage, nixosTests, testers, installShellFiles }:
- let
-  version = "1.0";
-  owner = "bezahl-online";
-  repo = "register";
-  rev = "v${version}";
-  sha256 = "";
-in
-buildRustPackage{
-  # cargoLock = { lockFile = "/home/ralph/workspace/register-tauri/src-tauri/Cargo.lock"; };
-  cargoSha256="";
-  pname = "register";
-  inherit version;
+{ rustPlatform, 
+  fetchFromGitHub, 
+  lib, 
+  gtk3, 
+  webkitgtk, 
+  pkgconfig, 
+  appimagekit, 
+  openssl, 
+  cmake, 
+  stdenv, 
+  libsoup
+}:
 
-  src = ./.;
- 
-  vendorSha256 = "";
+rustPlatform.buildRustPackage rec {
+  pname = "Register";
+  version = "1.2.3"; 
+  
+  src = ./src-tauri/.;
 
-  buildPhase = ''
-    runHook preBuild
-    npm run tauri build
-    runHook postBuild
-  '';
+  nativeBuildInputs = [ pkgconfig openssl cmake ];
+  
+  buildInputs = [ libsoup webkitgtk];
 
-  installPhase = ''
-    mkdir -p $out/bin
-    mv register $out/bin
-  '';
+  cargoSha256 = "sha256-LC1YLwMg8bQgsSvKiEcjiXTaj/7qBiDBTGgwzqZwSJ8=";
 
   meta = with lib; {
-    homepage = "https://github.com/bezahl-online/register-tauri";
-    description = "register Tauri app code";
+    homepage = "https://github.com/bezahl-online/register_tauri";
+    description = "Register for MMS";
     license = licenses.mit;
-    maintainers = with maintainers; [ /* list of maintainers here */ ];
+    maintainers = with maintainers; [ ralpheichelberger ];
+    platforms = platforms.unix;
   };
 }
-
