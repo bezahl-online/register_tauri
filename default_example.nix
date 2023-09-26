@@ -15,21 +15,18 @@
 
 let
 
-  pname = "register_tauri";
-  version = "v1.2.3";
-  src = fetchFromGitHub {
-    owner = "bezahl-online";
-    repo = pname;
-    rev = "0d263a16d291bddc0346ec261fb9d57fbf3fb5a1";
-    sha256 = "sha256-/79CQaLKs7TjpWj44D21O5mMdi92R3FVhcMQYPzrZIE=";
-  };
+  pname = "register-tauri";
+  version = "1.2.3";
+
+  src = ./.;
 
   frontend-build = mkYarnPackage {
-    inherit version src pname;
+    inherit version src;
+    pname = "register";
 
     offlineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = "";
+      sha256 = "sha256-H37vD0GTSsWV5UH7C6UANDWnExTGh8yqajLn3y7P2T8=";
     };
 
     packageJSON = ./package.json;
@@ -38,7 +35,7 @@ let
       export HOME=$(mktemp -d)
       yarn --offline run prebuild
 
-      cp -r deps/xplorer/out $out
+      cp -r deps/register/out $out
     '';
 
     distPhase = "true";
@@ -52,18 +49,13 @@ rustPlatform.buildRustPackage {
   sourceRoot = "${src.name}/src-tauri";
 
   cargoLock = {
-    lockFile = ./Cargo.lock;
-    outputHashes = {
-      # "tauri-plugin-window-state-0.1.0" = "sha256-DkKiwBwc9jrxMaKWOyvl9nsBJW0jBe8qjtqIdKJmsnc=";
-      # "window-shadows-0.2.0" = "sha256-e1afzVjVUHtckMNQjcbtEQM0md+wPWj0YecbFvD0LKE=";
-      # "window-vibrancy-0.3.0" = "sha256-0psa9ZtdI0T6sC1RJ4GeI3w01FdO2Zjypuk9idI5pBY=";
-    };
+    lockFile = ./src-tauri/Cargo.lock;
   };
 
   # copy the frontend static resources to final build directory
   # Also modify tauri.conf.json so that it expects the resources at the new location
   postPatch = ''
-    cp ${./Cargo.lock} Cargo.lock
+    cp ${./src-tauri/Cargo.lock} Cargo.lock
 
     mkdir -p frontend-build
     cp -R ${frontend-build}/src frontend-build
@@ -80,15 +72,13 @@ rustPlatform.buildRustPackage {
   ];
 
   postInstall = ''
-    mv $out/bin/app $out/bin/xplorer
+    mv $out/bin/app $out/bin/register
   '';
 
   meta = with lib; {
-    description = "A customizable, modern file manager";
-    homepage = "https://xplorer.space";
-    license = licenses.asl20;
-    maintainers = with maintainers; [ dit7ya ];
+    description = "Register client app";
+    homepage = "https://github/bezahlonline/register-tauri";
+    license = licenses.mit;
+    maintainers = with maintainers; [ ralpheichelberger ];
   };
 }
-
-
