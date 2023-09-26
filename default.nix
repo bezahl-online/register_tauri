@@ -20,8 +20,8 @@ let
   src = fetchFromGitHub {
     owner = "bezahl-online";
     repo = pname;
-    rev = "0d263a16d291bddc0346ec261fb9d57fbf3fb5a1";
-    sha256 = "sha256-/79CQaLKs7TjpWj44D21O5mMdi92R3FVhcMQYPzrZIE=";
+    rev = "abf64d8fc0297a0ad3e4ed43815ee721ec2417f2";
+    sha256 = "sha256-H+5FSGP/bvMgIVevPF9wZ4gvkfH7KncZ/nbBSnLnUgE=";
   };
 
   frontend-build = mkYarnPackage {
@@ -29,16 +29,16 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = "";
+      sha256 = "sha256-fkiGLj63qFjF7Uv64JnJk0n1lAvnL/qEINTHQhfCh2k=";
     };
 
     packageJSON = ./package.json;
 
     buildPhase = ''
       export HOME=$(mktemp -d)
-      yarn --offline run prebuild
+      yarn --offline vite build
 
-      cp -r deps/xplorer/out $out
+      cp -r deps/register/ $out
     '';
 
     distPhase = "true";
@@ -66,9 +66,9 @@ rustPlatform.buildRustPackage {
     cp ${./Cargo.lock} Cargo.lock
 
     mkdir -p frontend-build
-    cp -R ${frontend-build}/src frontend-build
+    cp -R ${frontend-build}/dist frontend-build
 
-    substituteInPlace tauri.conf.json --replace '"distDir": "../out/src",' '"distDir": "frontend-build/src",'
+    substituteInPlace tauri.conf.json --replace '"distDir": "../dist"' '"distDir": "frontend-build/dist"'
   '';
 
   nativeBuildInputs = [ cmake pkg-config ];
@@ -80,14 +80,14 @@ rustPlatform.buildRustPackage {
   ];
 
   postInstall = ''
-    mv $out/bin/app $out/bin/xplorer
+    mv $out/bin/app $out/bin/register
   '';
 
   meta = with lib; {
-    description = "A customizable, modern file manager";
-    homepage = "https://xplorer.space";
-    license = licenses.asl20;
-    maintainers = with maintainers; [ dit7ya ];
+    description = "register client for MMS";
+    homepage = "https://bezahl.online";
+    license = licenses.mit;
+    maintainers = with maintainers; [ ralpheichelberger ];
   };
 }
 

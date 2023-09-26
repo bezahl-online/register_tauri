@@ -1,14 +1,14 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "npm run build",
-    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "",
+    "beforeDevCommand": "",
     "devPath": "http://localhost:3000",
     "distDir": "../dist"
   },
   "package": {
     "productName": "register",
-    "version": "0.1.0"
+    "version": "1.2.3"
   },
   "tauri": {
     "allowlist": {
