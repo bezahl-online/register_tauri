@@ -177,7 +177,7 @@ var rState: RegisterState = {
     idleTimeout: 30 * 1000, // 30 seconds
     paying: false
   },
-  // HARDCODED
+  // HARDCODED driver urls and ports
   rfidURL: env_prod ? "https://localhost:8040" : "http://localhost:8040",
   gm65Url: env_prod ? "https://localhost:8070" : "http://localhost:8070",
   printUrl: env_prod ? "https://localhost:8050" : "http://localhost:8050",
