@@ -20,8 +20,8 @@ let
   src = fetchFromGitHub {
     owner = "bezahl-online";
     repo = pname;
-    rev = "abf64d8fc0297a0ad3e4ed43815ee721ec2417f2";
-    sha256 = "sha256-H+5FSGP/bvMgIVevPF9wZ4gvkfH7KncZ/nbBSnLnUgE=";
+    rev = "b69d0623a132e34d241d9ee7ca19a64519347d54";
+    sha256 = "sha256-nvQ0uDoPKx/9/6nJUsv6rNBeUAp2rSR76IzFPk1tCHI=";
   };
 
   frontend-build = mkYarnPackage {
@@ -32,7 +32,7 @@ let
       sha256 = "sha256-fkiGLj63qFjF7Uv64JnJk0n1lAvnL/qEINTHQhfCh2k=";
     };
 
-    packageJSON = ./package.json;
+    packageJSON = src+"/package.json";
 
     buildPhase = ''
       export HOME=$(mktemp -d)
@@ -52,7 +52,7 @@ rustPlatform.buildRustPackage {
   sourceRoot = "${src.name}/src-tauri";
 
   cargoLock = {
-    lockFile = ./Cargo.lock;
+    lockFile = src+"/src-tauri/Cargo.lock";
     outputHashes = {
       # "tauri-plugin-window-state-0.1.0" = "sha256-DkKiwBwc9jrxMaKWOyvl9nsBJW0jBe8qjtqIdKJmsnc=";
       # "window-shadows-0.2.0" = "sha256-e1afzVjVUHtckMNQjcbtEQM0md+wPWj0YecbFvD0LKE=";
@@ -63,7 +63,7 @@ rustPlatform.buildRustPackage {
   # copy the frontend static resources to final build directory
   # Also modify tauri.conf.json so that it expects the resources at the new location
   postPatch = ''
-    cp ${./Cargo.lock} Cargo.lock
+    cp ${src}/Cargo.lock Cargo.lock
 
     mkdir -p frontend-build
     cp -R ${frontend-build}/dist frontend-build
@@ -91,4 +91,5 @@ rustPlatform.buildRustPackage {
   };
 }
 
-
+# my nix expression now works - it builds mosty complelty from github - but I have an annoying little problem that I just dont understand - I need to provide Cargo.lock and packages.json in the build directory - how can I prepair the script not not need that?
+# after all it is in the tar from github (Cargo.lock is unter src-tauri - but I also have a copy of it in the root of the tar)
