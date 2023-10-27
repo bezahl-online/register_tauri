@@ -15,11 +15,12 @@
 
 let
 
-  pname = "register_tauri";
+  pname = "Register";
+  repo = "register_tauri";
   version = "v1.2.3";
   src = fetchFromGitHub {
     owner = "bezahl-online";
-    repo = pname;
+    repo = repo;
     rev = "b69d0623a132e34d241d9ee7ca19a64519347d54";
     sha256 = "sha256-nvQ0uDoPKx/9/6nJUsv6rNBeUAp2rSR76IzFPk1tCHI=";
   };
@@ -47,7 +48,7 @@ let
 in
 
 rustPlatform.buildRustPackage {
-  inherit version src pname;
+  inherit version src pname repo;
 
   sourceRoot = "${src.name}/src-tauri";
 

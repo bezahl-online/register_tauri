@@ -56,11 +56,7 @@
     "windows": [
       {
         "fullscreen": true,
-        "height": 1000,
-        "resizable": true,
-        "title": "register",
-        "width": 562,
-        "alwaysOnTop": false
+        "decorations": false
       }
     ]
   }
