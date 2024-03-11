@@ -31,7 +31,7 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = "sha256-fkiGLj63qFjF7Uv64JnJk0n1lAvnL/qEINTHQhfCh2k=";
+      sha256 = "sha256-o2OSMMWpWP6MmNwQoqm7ugBCIeDVWWFFrFPfvyqVVA4=";
     };
 
     packageJSON = src+"/package.json";
