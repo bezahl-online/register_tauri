@@ -4,13 +4,13 @@
   --screen-width: 1080px;
   --screen-height: 1920px;
   --text-color: #1e2549;
-  --font-size: 3rem;
-  --header-font-size: 4rem;
+  --font-size: 48px;
+  --header-font-size: 64px;
   --button-text-color: black;
   --button-background-color: rgb(148, 148, 148);
   --button-font-size: 40px;
   --button-height: 100px;
-  --message-font-size: 3rem;
+  --message-font-size: 48px;
   --blue: rgb(181, 186, 255);
   --green: rgb(158, 243, 158);
   --red: rgb(155, 95, 93);
@@ -18,7 +18,7 @@
   --receipt-background: rgba(255, 255, 255, 0.8);
   --receipt-footer-textcolor: var(--text-color);
   --receipt-footer-background: #1e254949;
-  --receipt-total-font-size: 2.5rem;
+  --receipt-total-font-size: 40px;
   --receipt-article-textcolor: --text-color;
   /* customer */
   --customer-account-background: rgba(255, 255, 255, 0.8);
@@ -27,7 +27,7 @@
   --customer-balance-font-size: 50px;
   --customer-footer-textcolor: var(--text-color);
   --customer-footer-background: #1e254949;
-  --customer-total-font-size: 2.5rem;
+  --customer-total-font-size: 40px;
   --customer-data-textcolor: --text-color;
   /* payment */
   --payment-button-abort-bg: rgb(148, 148, 148);
@@ -35,14 +35,14 @@
   /* invoice */
   --invoice-qr-width: 300px;
   /* dialog */ 
-  --dialog-message-font-size: 4rem;
-  --dialog-info-font-size: 4rem;
+  --dialog-message-font-size: 64px;
+  --dialog-info-font-size: 64px;
   --dialog-color-success: green;
   --dialog-color-abort: red;
   /* error */
   --error-color-header: red;
-  --error-header-font-size: 4rem;
-  --error-abort-message-font-size: 3rem;
+  --error-header-font-size: 64px;
+  --error-abort-message-font-size: 48px;
   /* storno */
   --storno-yes-background-color: var(--red);
 }
@@ -77,7 +77,7 @@ button:active {
 }
 .button_todo {
   border-color: red;
-  border-width: 1rem;
+  border-width: 16px;
 }
 .buttons {
   display: flex;
@@ -85,12 +85,12 @@ button:active {
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .buttons > button {
   font-size: xx-large;
   font-weight: bold;
-  width: 18rem;
-  height: 8rem;
+  width: 288px;
+  height: 128px;
 }

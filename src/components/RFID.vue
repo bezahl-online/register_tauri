@@ -10,6 +10,10 @@ import {
   getCustomerAccountBalance,
   getCreditAccountLines,
 } from "../mmsapi";
+
+import { useSpinner } from "./useSpinner";
+const spinner = useSpinner();
+
 const store = inject<RegisterState>("store");
 const DELAYDURATION = 500;
 const WAITFORRECONNECTTIME = 10000;
@@ -20,7 +24,7 @@ function getRFID(store: RegisterState) {
     .get(store.rfidURL)
     .then(async (result: AxiosResponse<string | any>) => {
       setDeviceState(store, "rfid", 0);
-      store.loading = true;
+      spinner.show();
       var key_uid: number = result.data;
       console.log(`keyUid: '${key_uid}'`);
       if (key_uid && key_uid > 0) {
@@ -54,11 +58,11 @@ function getRFID(store: RegisterState) {
         delay = DELAYDURATION;
         store.customer.account = null;
       }
-      store.loading = false;
+      spinner.hide();
       getRFID(store);
     })
     .catch(async (err) => {
-      store.loading = false;
+      spinner.hide();
       if (!store.devices.rfid) {
         setDeviceState(store, "rfid", 1);
         store.customer.account = null;

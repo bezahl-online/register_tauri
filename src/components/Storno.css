@@ -1,23 +1,23 @@
 /* Storno */
 .header {
     color: #1e2549;
-    font-size: 4.5rem;
+    font-size: 72px;
     margin: auto;
   }
   
   .body {
-    height: 10rem;
-    width: 60rem;
+    height: 329px;
+    width: 960px;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 16px;
   }
   
   .button {
-    width: 40rem;
-    height: 10rem;
+    width: 640px;
+    height: 329px;
     font-size: var(--button-font-size);
-    border-radius: 0.8rem;
+    border-radius: 13px;
   }
   
   .yes {

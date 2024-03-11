@@ -4,13 +4,13 @@
     button.buttons(@click.stop='newCode(button.article)') {{ button.name }}
 </template>
 <script setup lang="ts">
-import { inject} from "vue"
+import { inject } from "vue";
 import type { RegisterState } from "../store/store";
 import { addItem } from "./Register";
 
-const store=inject<RegisterState>("store")
-function  newCode(code: string) {
-  addItem(code,store)
+const store = inject<RegisterState>("store");
+function newCode(code: string) {
+  addItem(code, store);
   // store.soundEffect.KeyPress.play()
 }
 </script>
@@ -31,8 +31,7 @@ function  newCode(code: string) {
   background: #ffe2a2;
   font-size: xx-large;
   font-weight: bold;
-  width: 20rem;
-  height: 8rem;
+  width: 320px;
+  height: 128px;
 }
-
 </style>

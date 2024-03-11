@@ -24,10 +24,6 @@
   div.version v1.2.3 build 12161550
   Scanner
   RFID
-  .loading(v-if="store.loading")
-    .lds-ripple
-      div
-      div
   teleport(to="#endofbody")
     ECDialog(
       v-show="store.pt.payment.message ? true : false"
@@ -49,6 +45,11 @@
     Error
   teleport(to="#endofbody")
     Invoice.invoice(v-if="store.invoice.receiptCode")
+    transition(name="fade")
+      orbit-spinner.spinner(v-show="spinnerVisible"
+        :animation-duration="1000"
+        :size="400"
+        color="#0038a0") 
 </template>
 
 <script setup lang="ts">
@@ -88,7 +89,11 @@ import { PtResult } from "../model/pt/registerCompletionResponse";
 import { PaymentType } from "../model/mms/paymentType";
 import { ReceiptType } from "../model/mms/receiptType";
 import ErrorList from "./ErrorList.vue";
+import { OrbitSpinner } from "epic-spinners";
+import { useSpinner } from "./useSpinner";
 
+const spinner = useSpinner();
+const spinnerVisible = spinner.visible;
 const paymentVisible = ref(false);
 const buttonsDisabled = ref(false);
 const stornoModalVisible = ref(false);

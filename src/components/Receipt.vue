@@ -8,6 +8,7 @@ div.receipt(v-if="store.mms.receipt")
             div.prodName {{ item.product.name }}
             div {{ (item.price/100).toFixed(2) }}
             div {{ (item.total/100).toFixed(2) }}
+      
     div.footer
         div.totals(v-if="store.mms.receipt.total.price")
             div Ihr Greißlomat PREIS:
@@ -31,10 +32,8 @@ const emit = defineEmits(["itemstorno"]);
 //     let h=1-(1/(1*x+1))/(k+1)
 //     return `transform: scale(1,${h}); height: ${h+.5}rem`
 // }
-
-
 </script>
 
 <style scoped>
-@import "Receipt.css"
+@import "Receipt.css";
 </style>

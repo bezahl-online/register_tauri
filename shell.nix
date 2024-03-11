@@ -9,7 +9,7 @@
       pkgs.cargo-edit
       pkgs.rust-analyzer
       pkgs.dbus
-      pkgs.pkgconfig
+      pkgs.pkg-config
       pkgs.openssl
       pkgs.sass
       pkgs.glib

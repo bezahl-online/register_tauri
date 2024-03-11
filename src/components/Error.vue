@@ -18,8 +18,8 @@ import { Error } from "./Error";
 const store = inject<RegisterState>("store");
 
 function closeError(store: RegisterState) {
-  store.error = null
-  clearTimeout(store.errorIdleTimer)
+  store.error = null;
+  clearTimeout(store.errorIdleTimer);
 }
 
 function errorMessage() {
@@ -32,8 +32,8 @@ function errorMessage() {
 
 <style scoped>
 .error {
-  /* height: 10rem; */
-  width: 50rem;
+  /* height: 320px; */
+  width: 800px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -53,7 +53,7 @@ function errorMessage() {
   font-size: var(--button-font-size);
   font-weight: bold;
   width: 100%;
-  height: 6rem;
-  border-radius: 0.8rem;
+  height: 96px;
+  border-radius: 13px;
 }
 </style>

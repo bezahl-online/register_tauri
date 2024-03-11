@@ -10,6 +10,8 @@ import { RegisterState } from "../store/store";
 import { SignJWT } from "jose";
 import { regdb, KeyStore } from "../store/registerdata";
 import { ErrorType, SetError } from "./Error";
+import { useSpinner } from "./useSpinner";
+const spinner = useSpinner();
 
 export function authenticate(store: RegisterState): Promise<boolean> {
   return new Promise(async (resolve, reject) => {
@@ -67,14 +69,14 @@ function showCancleReceipt(store: RegisterState) {
 
 export function addItem(barcode: string, store: RegisterState) {
   resetIdleTimer(store); 
-  store.loading=true;
+  spinner.show();
   addProductItem(barcode, store)
     .then((result: any) => {
       store.mms.receipt = result;
-      store.loading=false;
+      spinner.hide();
     })
     .catch((err: any) => {
-      store.loading=false;
+      spinner.hide();
       if (err.message.includes("code 404")) {
         err.message=`${err.message} - EAN: '${barcode}'`
       }
@@ -94,14 +96,14 @@ export function addItem(barcode: string, store: RegisterState) {
 }
 
 export function stornoItem(item: object, store: RegisterState) {
-  store.loading=true;
+  spinner.show();
   stornoProductItem(item, store)
     .then((result: any) => {
       store.mms.receipt = result;
-      store.loading=false;
+      spinner.hide();
     })
     .catch((err: any) => {
-      store.loading=false;
+      spinner.hide();
       SetError(
         store,
         err,
@@ -125,11 +127,11 @@ export function closeInvoice(store: RegisterState) {
 
 export function cancelReceipt(store: RegisterState): Promise<string> {
   return new Promise((resolve, reject) => {
-    store.loading=true;
+    spinner.show();
     if (!store.mms.receipt) resolve("OK"); // if there is no receipt we can't cancel it
     closeReceipt("cancelled", store)
       .catch((err) => {
-        store.loading=false;
+        spinner.hide();
         SetError(
           store,
           err,
@@ -143,7 +145,7 @@ export function cancelReceipt(store: RegisterState): Promise<string> {
         reject(err);
       })
       .then(() => {
-        store.loading=false;
+        spinner.hide();
         resolve("OK");
       });
   });

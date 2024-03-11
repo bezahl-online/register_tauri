@@ -1,17 +1,17 @@
 .header {
   color: var(--text-color);
-  font-size: 4.5rem;
+  font-size: 72px;
   margin: auto;
 }
 .payments {
-  height: 20rem;
-  width: 60rem;
+  height: 320px;
+  width: 960px;
   display: flex;
   justify-content: center;
 }
 .bluecode {
   flex: 1;
-  padding: 0.5rem;
+  padding: 8px;
   background: url("../assets/bluecode.svg") no-repeat;
   background-position: center;
   background-size: contain;
@@ -19,21 +19,21 @@
 
 .bankomat {
   flex: 1;
-  padding: 0.5rem;
+  padding: 8px;
   background: url("../assets/EC2.svg") no-repeat;
   background-position: center;
   background-size: contain;
 }
 .payment3 {
   flex: 1;
-  padding: 0.5rem;
+  padding: 8px;
   background: url("../assets/BAR.svg") no-repeat;
   background-position: center;
   background-size: contain;
 }
 .kundenkonto {
   flex: 1;
-  padding: 0.5rem;
+  padding: 8px;
   background: url("../assets/KONTO.svg") no-repeat;
   background-position: center;
   background-size: contain;
@@ -47,5 +47,5 @@
   font-size: var(--button-font-size);
   font-weight: bold;
   width: 100%;
-  border-radius: 0.8rem;
+  border-radius: 13px;
 }

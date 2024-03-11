@@ -14,7 +14,7 @@ Modal(v-show="isModalVisible")
 import Modal from "./Modal.vue";
 import { inject } from "vue";
 import type { RegisterState } from "../store/store";
-import { resetIdleTimer } from "./Register"
+import { resetIdleTimer } from "./Register";
 
 const props = defineProps({
   isModalVisible: Boolean,
@@ -24,7 +24,7 @@ const props = defineProps({
   abortBtn: Boolean,
 });
 
-const store:RegisterState = inject("store")
+const store: RegisterState = inject("store");
 </script>
 
 <style scoped>
@@ -32,15 +32,15 @@ const store:RegisterState = inject("store")
   color: #1e2549;
   font-size: var(--dialog-message-font-size);
   width: 100%;
-  padding: 0.5rem;
+  padding: 8px;
   background-repeat: no-repeat;
   background-position: left;
   background-size: contain;
   text-align: right;
 }
 .Vorgang {
-  height: 10rem;
-  width: 50rem;
+  height: 320px;
+  width: 800px;
   display: flex;
   justify-content: center;
 }

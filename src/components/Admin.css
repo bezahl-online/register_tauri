@@ -9,18 +9,18 @@
   .functions > button {
     font-size: xxx-large;
     font-weight: bold;
-    width: 30rem;
-    height: 8rem;
+    width: 480px;
+    height: 128px;
   }
   .buttonAbort {
     grid-column: 2;
     background: rgb(148, 148, 148);
     color: inherit;
     color: inherit;
-    font-size: 4.5rem;
+    font-size: 72px;
     font-weight: bold;
     width: 100%;
-    border-radius: 0.8rem;
+    border-radius: 13px;
   }
   .rksv_qr {
     display: flex;

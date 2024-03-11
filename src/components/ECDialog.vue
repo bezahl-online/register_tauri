@@ -15,7 +15,7 @@ import Modal from "./Modal.vue";
 import { PTabort } from "./Payment";
 import { inject } from "vue";
 import type { RegisterState } from "../store/store";
-import { ref } from 'vue'
+import { ref } from "vue";
 const props = defineProps({
   isModalVisible: Boolean,
   name: String,
@@ -24,9 +24,9 @@ const props = defineProps({
   abortBtn: Boolean,
 });
 
-const emit = defineEmits(['abort'])
+const emit = defineEmits(["abort"]);
 
-const store: RegisterState = inject("store")
+const store: RegisterState = inject("store");
 </script>
 
 <style scoped>
@@ -34,7 +34,7 @@ const store: RegisterState = inject("store")
   color: #1e2549;
   font-size: var(--dialog-message-font-size);
   width: 100%;
-  padding: 0.5rem;
+  padding: 8px;
   background: url("../assets/EC.svg") no-repeat;
   background-repeat: no-repeat;
   background-position: left;
@@ -42,8 +42,8 @@ const store: RegisterState = inject("store")
   text-align: right;
 }
 .Vorgang {
-  height: 10rem;
-  width: 50rem;
+  height: 320px;
+  width: 800px;
   display: flex;
   justify-content: center;
 }
