@@ -13,9 +13,9 @@
     "@tauri-apps/api": "^1.5.3",
     "axios": "^0.23.0",
     "cron": "^1.8.2",
-    "dexie": "^3.2.4",
+    "dexie": "^3.2.6",
     "epic-spinners": "^2.0.0",
-    "jose": "^4.14.4",
+    "jose": "^4.15.5",
     "qrcode.vue": "^3.4.1",
     "universal-base64url": "^1.1.0",
     "vue": "^3.4.21"

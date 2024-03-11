@@ -17,7 +17,7 @@ let
 
   pname = "Register";
   repo = "register_tauri";
-  version = "v1.2.3";
+  version = "v1.3.0";
   src = fetchFromGitHub {
     owner = "bezahl-online";
     repo = repo;
