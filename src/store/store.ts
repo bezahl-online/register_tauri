@@ -179,7 +179,8 @@ var rState: RegisterState = {
   },
   // HARDCODED driver urls and ports
   rfidURL: env_prod ? "https://localhost:8040" : "http://localhost:8040",
-  gm65Url: env_prod ? "https://localhost:8070" : "http://localhost:8070",
+  // CHANGED productive URL to GM65 to NON-SSL
+  gm65Url: env_prod ? "http://localhost:8070" : "http://localhost:8070",
   printUrl: env_prod ? "https://localhost:8050" : "http://localhost:8050",
   setPublicKey: function (key: KeyLike) {
     exportJWK(key).then((jwkkey) => {
