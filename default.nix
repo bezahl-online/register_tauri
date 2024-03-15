@@ -22,7 +22,6 @@ let
     owner = "bezahl-online";
     repo = repo;
     rev = "47094a4b88d04af1572334e96566bf097fdc20fa";
-    #rev = "fd00244b9e8b2e53fde8f4bbdd8c1f1a73fed30b";
     sha256 = "sha256-QxJ431PrIIxt6XsYy44zM7DxQlTljtvGtUgZcXIBcBk=";
   };
 
@@ -31,7 +30,7 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = "sha256-o2OSMMWpWP6MmNwQoqm7ugBCIeDVWWFFrFPfvyqVVA4=";
+      sha256 = "";
     };
 
     packageJSON = src+"/package.json";
