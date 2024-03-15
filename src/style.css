@@ -15,7 +15,7 @@
   --green: rgb(158, 243, 158);
   --red: rgb(155, 95, 93);
   /* receipt */
-  --receipt-background: rgba(255, 255, 255, 0.8);
+  --receipt-background: rgba(255, 142, 142, 0.8);
   --receipt-footer-textcolor: var(--text-color);
   --receipt-footer-background: #1e254949;
   --receipt-total-font-size: 40px;
