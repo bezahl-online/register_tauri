@@ -124,7 +124,7 @@ var rState: RegisterState = {
   mms: { // default value should be overwitten on startup getting config from API
     url: env_prod ? (mms_start_url ? mms_start_url :
       // "https://register2.bezahl.online") :
-      "http://192.168.30.73:8090") :
+      "http://localhost:8090") :
       // "https://localhost:8090") :
       "http://localhost:8090",
     receipt: null,
