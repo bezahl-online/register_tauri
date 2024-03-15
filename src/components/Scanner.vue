@@ -28,6 +28,13 @@ let lastCodeSince = new Date();
 let sameCodeHold = false;
 const store = inject<RegisterState>("store");
 
+const originalConsoleLog = console.log;
+console.log = function (message) {
+  originalConsoleLog(message);
+  // @ts-ignore
+  window.__TAURI__.invoke("log_message", { message: message.toString() });
+};
+
 function getCode(store: RegisterState) {
   if (store.pt.busy || store.invoice.receiptCode) {
     console.log("payment in progress - no scanning");
