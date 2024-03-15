@@ -142,7 +142,7 @@ var rState: RegisterState = {
     idle_timeout: 2 * 60 * 1000, // 2 minutes    
   },
   pt: {// HARDCODED // FIXME: set with env vars
-    url: env_prod ? "https://localhost:8060" : "http://localhost:8060",
+    url: env_prod ? "http://localhost:8060" : "http://localhost:8060",
     payment: {
       state: null,
       info: null,
@@ -178,9 +178,9 @@ var rState: RegisterState = {
     paying: false
   },
   // HARDCODED driver urls and ports
-  rfidURL: env_prod ? "https://localhost:8040" : "http://localhost:8040",
-  gm65Url: env_prod ? "https://localhost:8070" : "http://localhost:8070",
-  printUrl: env_prod ? "https://localhost:8050" : "http://localhost:8050",
+  rfidURL: env_prod ? "http://localhost:8040" : "http://localhost:8040",
+  gm65Url: env_prod ? "http://localhost:8070" : "http://localhost:8070",
+  printUrl: env_prod ? "http://localhost:8050" : "http://localhost:8050",
   setPublicKey: function (key: KeyLike) {
     exportJWK(key).then((jwkkey) => {
       this.auth.publicKey = jwkkey;
