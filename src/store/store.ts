@@ -96,7 +96,7 @@ interface RegisterState {
 }
 
 var rState: RegisterState = {
-  failover_url:  "https://www.greisslomat.at:444",
+  failover_url:  "", //"https://www.greisslomat.at:444",
   // should be minimum 1 Minute or we risk duplicate receipt code
   idle_timeout: 5 * 60 * 1000, // 5 minutes
   idleTimer: null,
@@ -123,8 +123,8 @@ var rState: RegisterState = {
   soundEffect: null,
   mms: { // default value should be overwitten on startup getting config from API
     url: env_prod ? (mms_start_url ? mms_start_url :
-      "https://register2.bezahl.online") :
-      // "https://localhost:8090") :
+      // "https://register2.bezahl.online") : // FIXME: testing
+      "https://testmms-redttajnka-ew.a.run.app") :
       "http://localhost:8090",
     receipt: null,
     // lastReceipt: null,
@@ -142,7 +142,8 @@ var rState: RegisterState = {
     idle_timeout: 2 * 60 * 1000, // 2 minutes    
   },
   pt: {// HARDCODED // FIXME: set with env vars
-    url: env_prod ? "https://localhost:8060" : "http://localhost:8060",
+    // CHANGED productive URL to NON-SSL for Tauri app
+    url: env_prod ? "http://localhost:8060" : "http://localhost:8060",
     payment: {
       state: null,
       info: null,
@@ -178,10 +179,11 @@ var rState: RegisterState = {
     paying: false
   },
   // HARDCODED driver urls and ports
-  rfidURL: env_prod ? "https://localhost:8040" : "http://localhost:8040",
-  // CHANGED productive URL to GM65 to NON-SSL
+
+  // CHANGED productive URL to NON-SSL for Tauri app
+  rfidURL: env_prod ? "http://localhost:8040" : "http://localhost:8040",
   gm65Url: env_prod ? "http://localhost:8070" : "http://localhost:8070",
-  printUrl: env_prod ? "https://localhost:8050" : "http://localhost:8050",
+  printUrl: env_prod ? "http://localhost:8050" : "http://localhost:8050",
   setPublicKey: function (key: KeyLike) {
     exportJWK(key).then((jwkkey) => {
       this.auth.publicKey = jwkkey;
