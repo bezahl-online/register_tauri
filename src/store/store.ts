@@ -96,7 +96,7 @@ interface RegisterState {
 }
 
 var rState: RegisterState = {
-  failover_url:  "https://www.greisslomat.at:444",
+  failover_url: "", // "https://www.greisslomat.at:444",
   // should be minimum 1 Minute or we risk duplicate receipt code
   idle_timeout: 5 * 60 * 1000, // 5 minutes
   idleTimer: null,
@@ -123,7 +123,8 @@ var rState: RegisterState = {
   soundEffect: null,
   mms: { // default value should be overwitten on startup getting config from API
     url: env_prod ? (mms_start_url ? mms_start_url :
-      "https://register2.bezahl.online") :
+      // "https://register2.bezahl.online") :
+      "http://192.168.30.73:8090") :
       // "https://localhost:8090") :
       "http://localhost:8090",
     receipt: null,
