@@ -21,9 +21,8 @@ let
   src = fetchFromGitHub {
     owner = "bezahl-online";
     repo = repo;
-    rev = "47094a4b88d04af1572334e96566bf097fdc20fa";
-    #rev = "fd00244b9e8b2e53fde8f4bbdd8c1f1a73fed30b";
-    sha256 = "sha256-QxJ431PrIIxt6XsYy44zM7DxQlTljtvGtUgZcXIBcBk=";
+    rev = "50132181bad0ea599c71fe3956025bcc2c9dfb21";
+    sha256 = "sha256-u6/u0UfVODDvOkuf/1YVM5JJ+T2Cj5VVKQXPD6x0T2I=";
   };
 
   frontend-build = mkYarnPackage {

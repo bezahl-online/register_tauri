@@ -16,5 +16,5 @@ doc/animating*
 install/printapi
 
 install/debian/register/usr/share
-src-tauri
+#src-tauri
 result
