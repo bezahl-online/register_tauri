@@ -13,6 +13,8 @@ import { Register } from "./model/mms/register";
 import { RegisterConfigPop } from "./model/mms/registerConfigPop";
 import type { RegisterState } from "./store/store";
 import { authenticate } from './components/Register';
+import { info } from "tauri-plugin-log-api";
+
 // const url="http://localhost:8090"
 
 export function addProductItem(
@@ -445,16 +447,19 @@ function get(path: string, params: string[], store: RegisterState): Promise<Regi
 function post(path: string, data: object, store: RegisterState) {
   return new Promise<AxiosResponse>(async (resolve, reject) => {
     if (store.registerID.length > 0) { await authenticate(store) }
+    info(`post data:"${data}" to url:"${store.mms.url}"`)
     axios
       .post(`${store.mms.url}${path}`, data, {
         auth: store.auth,
       })
       .then((result) => {
+        info(`success result:"${JSON.stringify(result)}"`)
         resolve(result);
       })
       .catch((err) => {
         var errmes = err["message"] ? err["message"] : "no message in error"
         var servererror = errmes.includes("Network") || errmes.includes("code 500")
+        info(`failed result:"${JSON.stringify(errmes)}"`)
         if (servererror && store.failover_url) {
           axios
             .post(`${store.failover_url}${path}`, data, {
