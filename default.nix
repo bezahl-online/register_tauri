@@ -21,8 +21,8 @@ let
   src = fetchFromGitHub {
     owner = "bezahl-online";
     repo = repo;
-    rev = "817f3776e94b84553da773fe438d738dd26c411f";
-    sha256 = "sha256-VYqkYMXBObajSvTlMSzZh2ptTl5JeUJT90LrtnjBMmQ=";
+    rev = "5c7bdc9f815cc87366de51e24e4df93b4f919016";
+    sha256 = "sha256-UW+ILn/IeR9KVhsTvaSlXq/fviLEqe9d49R8hGs1lOw=";
   };
 
   frontend-build = mkYarnPackage {
@@ -30,7 +30,7 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = "sha256-uZIS6YiOx7RuAnklE2B9U0ISYp5kvoWWgQuarpo+IL0=";
+      sha256 = "";
     };
 
     packageJSON = src+"/package.json";
