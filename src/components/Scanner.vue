@@ -11,6 +11,7 @@ import { ErrorType, setDeviceState, SetError } from "./Error";
 import type { Register } from "../model/mms/register";
 import type { RegisterState } from "../store/store";
 import type { Company } from "../model/mms/company";
+import { info } from "tauri-plugin-log-api";
 
 const errorMap = new Map();
 errorMap.set(ErrorType.E_NETWORK, 1);
@@ -63,11 +64,13 @@ function getCode(store: RegisterState) {
         }
         if (!sameCodeHold) {
           lastCode = result.data.payload;
+          info(`GM65 sent: '${lastCode}'`);
           lastCodeSince = new Date();
-          if (result.data.payload.length == 36) {
+          if (lastCode.length == 36) {
+            info(`enrollRegister:${lastCode} (${JSON.stringify(store.auth.publicKey)})`);
             enrollRegister(
               {
-                tan: result.data.payload,
+                tan: lastCode,
                 public_key: JSON.stringify(store.auth.publicKey),
               },
               store
