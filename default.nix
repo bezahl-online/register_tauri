@@ -21,8 +21,8 @@ let
   src = fetchFromGitHub {
     owner = "bezahl-online";
     repo = repo;
-    rev = "5c7bdc9f815cc87366de51e24e4df93b4f919016";
-    sha256 = "sha256-UW+ILn/IeR9KVhsTvaSlXq/fviLEqe9d49R8hGs1lOw=";
+    rev = "";
+    sha256 = "";
   };
 
   frontend-build = mkYarnPackage {
@@ -30,7 +30,7 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = "";
+      sha256 = "sha256-27ZgaJc4XfcWFokjPblD6z9ythwN4jmZuuAK5I7UM/Q=";
     };
 
     packageJSON = src+"/package.json";
@@ -55,9 +55,7 @@ rustPlatform.buildRustPackage {
   cargoLock = {
     lockFile = src+"/src-tauri/Cargo.lock";
     outputHashes = {
-      # "tauri-plugin-window-state-0.1.0" = "sha256-DkKiwBwc9jrxMaKWOyvl9nsBJW0jBe8qjtqIdKJmsnc=";
-      # "window-shadows-0.2.0" = "sha256-e1afzVjVUHtckMNQjcbtEQM0md+wPWj0YecbFvD0LKE=";
-      # "window-vibrancy-0.3.0" = "sha256-0psa9ZtdI0T6sC1RJ4GeI3w01FdO2Zjypuk9idI5pBY=";
+      "tauri-plugin-log-0.0.0" = "sha256-t+zmMMSnD9ASZZvqlhu1ah2OjCUtRXdk/xaI37uI49c=";
     };
   };
 
