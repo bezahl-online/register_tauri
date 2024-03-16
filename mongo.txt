@@ -1,0 +1,35 @@
+db.registers.insertOne({
+    certkeyid: 'avmwqw0g',
+    certserial: '10198359110748069603',
+    companyid: 1,
+    configid: 3,
+    fon: true,
+    id: '999999',
+    name: 'Nix Test',
+    salescounterkey: 'Z24zNVV4bmttRHhtSDVJMzBKaWpkNHpDNldqM0tmNjQ=',
+    state: 'active',
+    storageid: 1
+  });
+
+db.registerconfigs.insertOne({
+    apiurl: 'https://testmms-redttajnka-ew.a.run.app',
+    buttons: [ 1, 2, 3, 4, 5, 7 ],
+    id: 3,
+    name: 'test',
+    publicapiurl: 'https://testmms-redttajnka-ew.a.run.app'
+  }
+);
+
+db.users.insertOne({
+    otp: [
+    ],
+    groups: [ 1 ],
+    id: 999999,
+    name: 'Test',
+    publickeys: [
+    ],
+    registerid: '999999',
+    state: 'active',
+    tan: "3ce347f8-0070-5cbe-82e7-4c33bd93fa5a",
+    type: 'register'
+});
