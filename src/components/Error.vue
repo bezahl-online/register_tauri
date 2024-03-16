@@ -23,7 +23,7 @@ function closeError(store: RegisterState) {
 }
 
 function errorMessage() {
-  if (!store.error) return "";
+  if (!store?.error) return "";
   let mes = Error.get(store.error.nr);
   var message = mes ? mes : "Unbekannter Fehler";
   return message;

@@ -22,7 +22,7 @@
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.11",
     "@types/cron": "^1.7.3",
-    "@types/node": "^16.18.87",
+    "@types/node": "^16.18.89",
     "@vitejs/plugin-vue": "^1.10.2",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",

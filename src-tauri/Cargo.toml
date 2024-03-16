@@ -1,23 +1,23 @@
 cargo-features = ["edition2024"]
 [package]
-name = "app"
-version = "0.1.0"
+name = "register"
+version = "1.3.0"
 description = "Register"
 authors = ["Ralph Eichelberger"]
 license = ""
 repository = ""
-default-run = "app"
+default-run = "register"
 edition = "2021"
 rust-version = "1.59"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "1.2.1", features = [] }
+tauri-build = { version = "1", features = [] }
 
 [dependencies]
-serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.2.4", features = ["devtools"] }
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+tauri = { version = "1", features = ["devtools"] }
 tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 
 [features]
