@@ -21,8 +21,8 @@ let
   src = fetchFromGitHub {
     owner = "bezahl-online";
     repo = repo;
-    rev = "8ccad414ad7fc6ec292809b6939ad13826a54b23";
-    sha256 = "sha256-U5cFUIrcteaW7W201lYqgtIMOz12iVsuncw/SAHaLHg=";
+    rev = "3cb162bc29c3befb45ac7bf118a35051798ef359";
+    sha256 = "sha256-tyl48ghk25+DX5Iov3gv+YahnaYYgpCVGgoT5IY45Fw=";
   };
 
   frontend-build = mkYarnPackage {
@@ -30,7 +30,7 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = "sha256-27ZgaJc4XfcWFokjPblD6z9ythwN4jmZuuAK5I7UM/Q=";
+      sha256 = "sha256-5XWCkPH3PluqcLkPwU2oTdmSwIJyYlwX73vkFsPY3zQ=";
     };
 
     packageJSON = src+"/package.json";
@@ -78,9 +78,9 @@ rustPlatform.buildRustPackage {
     "--skip=test_file_operation"
   ];
 
-  postInstall = ''
-    mv $out/bin/app $out/bin/register
-  '';
+  # postInstall = ''
+  #   mv $out/bin/app $out/bin/register
+  # '';
 
   meta = with lib; {
     description = "register client for MMS";
