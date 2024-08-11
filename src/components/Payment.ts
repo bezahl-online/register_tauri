@@ -50,13 +50,13 @@ export function PTstart(store: RegisterState): Promise<any> {
       pollpayment(store)
         .then((result: AuthCompletionResponse) => {
           processPaymentResult(result, store);
-          if (result.transaction.result == PtResult.NeedEndOfDay) {
+          if (result.transaction?.result == PtResult.NeedEndOfDay) {
             store.error = {
               nr: 15,
               err: null,
             }
           }
-          result.transaction.result == PtResult.Pending
+          result.transaction?.result == PtResult.Pending
             ? poll(store)
             : resolve(result);
           return;
@@ -81,30 +81,32 @@ function processPaymentResult(result: AuthCompletionResponse, store: RegisterSta
   // if (result && result["message"].length > 0)
   //   store.pt.payment.message = result["message"];
   let t = result.transaction
-  store.pt.payment.state = t.result;
-  if (t.data && t.data.info) {
-    store.pt.payment.info = t.data.info;
-  }
-  switch (t.result) {
-    case PtResult.Pending:
-      // console.log("still pending..");
-      if (t.data && !store.pt.payment.transactionData) {
-        store.pt.payment.transactionData = t.data;
-      }
-      break;
-    case PtResult.Abort:
-      store.pt.payment.message = "Zahlung abgebrochen"; // TODO: i18n
-      store.pt.payment.transactionData = null;
-      waitClose(store);
-      break;
-    case PtResult.Success:
-      store.pt.payment.message = "Zahlung erfolgreich";
-      waitClose(store);
-      break;
-    case PtResult.NeedEndOfDay:
-      store.pt.payment.message = "Tagesabschluss notwendig";
-      waitClose(store);
-      break;
+  store.pt.payment.state = t? t.result:null;
+  if (t) {
+    if (t.data && t.data.info) {
+      store.pt.payment.info = t.data.info;
+    }
+    switch (t.result) {
+      case PtResult.Pending:
+        // console.log("still pending..");
+        if (t.data && !store.pt.payment.transactionData) {
+          store.pt.payment.transactionData = t.data;
+        }
+        break;
+      case PtResult.Abort:
+        store.pt.payment.message = "Zahlung abgebrochen"; // TODO: i18n
+        store.pt.payment.transactionData = null;
+        waitClose(store);
+        break;
+      case PtResult.Success:
+        store.pt.payment.message = "Zahlung erfolgreich";
+        waitClose(store);
+        break;
+      case PtResult.NeedEndOfDay:
+        store.pt.payment.message = "Tagesabschluss notwendig";
+        waitClose(store);
+        break;
+    }
   }
 }
 
